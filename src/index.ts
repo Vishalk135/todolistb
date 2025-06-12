@@ -1,9 +1,14 @@
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
+dotenv.config();
 import taskRoutes from '../src/routes/taskRoute';
 
 const app = express();
 const PORT = 4000;
+
+const PORT = process.env.PORT || 4000;
+const JWT_SECRET = process.env.JWT_SECRET || 'default_secret';
 
 app.use(cors());
 app.use(express.json());
